@@ -2,8 +2,13 @@ class ItemsController < ApplicationController
   
   #La def destroy et create et edit concerne le coté admin qui peut avoir la gestion des items 
   def destroy
-    @item.destroy
-    render json: @items
+    @item = Item.find_by(id: params[:id])
+    if @item
+      @item.destroy
+      render json: { message: 'Item deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Item not found' }, status: :not_found
+    end
   end
   
   # GET /items or /items.json
