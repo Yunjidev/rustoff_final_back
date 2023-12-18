@@ -20,7 +20,7 @@ class CheckoutController < ApplicationController
         },
       ],
       mode: 'payment',
-      success_url: "http://localhost:5173/order",
+      success_url: "https://rustoff-final-app-e6752fce9f21.herokuapp.com/order",
     )
 
     # Stockez @session dans la session pour y accéder dans d'autres actions
